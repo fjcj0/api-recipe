@@ -1,6 +1,7 @@
 import express from 'express';
 import 'dotenv/config';
 import { db } from "./config/db.js";
+import { favoritesTable } from './db/schema.js';
 const app = express();
 app.use(express.json());
 app.get("/api/health", (req, res) => {
