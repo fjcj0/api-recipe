@@ -2,6 +2,7 @@ import express from 'express';
 import 'dotenv/config';
 import { db } from "./config/db.js";
 import { favoritesTable } from './db/schema.js';
+import { and, eq } from 'drizzle-orm';
 const app = express();
 app.use(express.json());
 app.get("/api/health", (req, res) => {
@@ -37,7 +38,6 @@ app.get("/api/favorites/:userId", async (req, res) => {
             .select()
             .from(favoritesTable)
             .where(eq(favoritesTable.userId, userId));
-
         res.status(200).json(userFavorites);
     } catch (error) {
         console.log("Error fetching the favorites", error);
