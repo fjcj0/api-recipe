@@ -1,8 +1,8 @@
 import express from 'express';
 import 'dotenv/config';
+import { db } from "./config/db.js";
 const app = express();
 app.use(express.json());
-if (process.env.NODE_ENV === "production") job.start();
 app.get("/api/health", (req, res) => {
     res.status(200).json({ success: true });
 });
